@@ -1,0 +1,17 @@
+#decryting a ciphertext
+
+def caesar_decrypt(text, shift):
+    result = ""
+    for char in text:
+        if char.isalpha():
+            base = ord('A') if char.isupper() else ord('a')
+            result += chr((ord(char) - base - shift) % 26 + base)
+        else:
+            result += char
+    return result
+
+ciphertext = "Oktz D zvmizy v amzz kjdio! di ocz wjs wzgjr"
+
+for shift in range (1,26):
+    decrypted = caesar_decrypt(ciphertext, shift)
+    print(f"shift{shift}:{decrypted}")
